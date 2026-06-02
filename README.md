@@ -18,6 +18,9 @@ Modern academy website with student registration, profiles, batch enrollment dis
 2. Open **SQL Editor** and run the full script: `supabase/schema.sql`.
 3. Under **Authentication → Providers**, enable Email.
 4. (Optional) Disable “Confirm email” for faster local testing.
+5. Under **Authentication → URL Configuration**, add redirect URLs:
+   - `http://localhost:3000/auth/callback`
+   - `http://localhost:3000/reset-password` (production: your domain)
 
 ### 2. Environment variables
 

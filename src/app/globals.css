@@ -51,3 +51,22 @@ body {
     transparent
   );
 }
+
+.scroll-reveal-hidden {
+  opacity: 0;
+  transform: translateY(1.25rem);
+}
+
+.scroll-reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal-hidden,
+  .scroll-reveal-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

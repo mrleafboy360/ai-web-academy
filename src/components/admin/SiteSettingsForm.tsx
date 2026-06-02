@@ -82,12 +82,18 @@ export function SiteSettingsForm({ settings }: { settings: SiteSettings }) {
         value={form.city ?? ""}
         onChange={(e) => update("city", e.target.value)}
       />
-      <Input
-        label="Google Maps Embed URL"
-        value={form.map_embed_url ?? ""}
-        onChange={(e) => update("map_embed_url", e.target.value)}
-        placeholder="https://www.google.com/maps/embed?..."
-      />
+      <div className="space-y-1">
+        <Input
+          label="Google Maps Embed URL (optional)"
+          value={form.map_embed_url ?? ""}
+          onChange={(e) => update("map_embed_url", e.target.value)}
+          placeholder="https://www.google.com/maps/embed?pb=..."
+        />
+        <p className="text-[10px] text-muted sm:text-xs">
+          Google Maps → Share → Embed a map → copy the <strong>src</strong> URL only, or paste
+          full iframe HTML. If empty, map uses Address + City above.
+        </p>
+      </div>
       <label className="flex items-center gap-2 text-xs sm:text-sm">
         <input
           type="checkbox"

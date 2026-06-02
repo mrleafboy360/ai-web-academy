@@ -13,6 +13,7 @@ export function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirect = searchParams.get("redirect") ?? "/profile";
+  const resetDone = searchParams.get("reset") === "1";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -48,6 +49,11 @@ export function LoginForm() {
       <p className="mt-0.5 text-[11px] text-muted sm:mt-1 sm:text-sm">
         Access your profile and admission details.
       </p>
+      {resetDone && (
+        <p className="mt-2 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-1.5 text-[11px] text-emerald-600 dark:text-emerald-400 sm:text-xs">
+          Password updated. You can log in now.
+        </p>
+      )}
       <form onSubmit={handleSubmit} className="mt-4 space-y-3 sm:mt-6 sm:space-y-4">
         <Input
           label="Email"
@@ -57,15 +63,22 @@ export function LoginForm() {
           onChange={(e) => setEmail(e.target.value)}
           autoComplete="email"
         />
-        <Input
-          label="Password"
-          type="password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          autoComplete="current-password"
-        />
-        {error && <p className="text-sm text-red-500">{error}</p>}
+        <div>
+          <Input
+            label="Password"
+            type="password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="current-password"
+          />
+          <div className="mt-1 text-right">
+            <Link href="/forgot-password" className="text-[10px] text-accent hover:underline sm:text-xs">
+              Forgot password?
+            </Link>
+          </div>
+        </div>
+        {error && <p className="text-xs text-red-500 sm:text-sm">{error}</p>}
         <Button type="submit" className="w-full sm:w-auto" disabled={loading}>
           {loading ? "Signing in…" : "Login"}
         </Button>

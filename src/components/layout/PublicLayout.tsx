@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { getSiteSettings } from "@/lib/data";
 
 export async function PublicLayout({ children }: { children: React.ReactNode }) {
@@ -10,6 +11,7 @@ export async function PublicLayout({ children }: { children: React.ReactNode }) 
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer settings={settings} />
+      <FloatingWhatsApp phone={settings?.whatsapp} />
     </>
   );
 }
