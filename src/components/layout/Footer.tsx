@@ -7,18 +7,12 @@ const quickLinks = [
   { href: "/", label: "Home" },
   { href: "/courses", label: "Courses" },
   { href: "/batches", label: "Batches" },
-  { href: "/contact", label: "Contact Us" },
 ];
 
 const legalLinks = [
   { href: "/privacy-policy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms & Conditions" },
-];
-
-const accountLinks = [
-  { href: "/signup", label: "Sign Up" },
-  { href: "/login", label: "Student Login" },
-  { href: "/forgot-password", label: "Forgot Password" },
+  { href: "/contact", label: "Contact Us" },
 ];
 
 export function Footer({ settings }: { settings: SiteSettings | null }) {
@@ -61,7 +55,7 @@ export function Footer({ settings }: { settings: SiteSettings | null }) {
           </div>
 
           {/* Links */}
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:col-span-5">
+          <div className="grid grid-cols-2 gap-4 lg:col-span-5">
             <div>
               <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-accent sm:text-xs">
                 Quick Links
@@ -85,23 +79,6 @@ export function Footer({ settings }: { settings: SiteSettings | null }) {
               </p>
               <ul className="space-y-1.5">
                 {legalLinks.map((l) => (
-                  <li key={l.href}>
-                    <Link
-                      href={l.href}
-                      className="text-[10px] text-muted transition hover:text-accent sm:text-xs"
-                    >
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-accent sm:text-xs">
-                Students
-              </p>
-              <ul className="space-y-1.5">
-                {accountLinks.map((l) => (
                   <li key={l.href}>
                     <Link
                       href={l.href}
